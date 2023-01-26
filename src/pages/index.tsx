@@ -10,6 +10,10 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="flex min-h-screen w-screen flex-col py-2">
+        <h1 className="text-4xl">site</h1>
+        <OgImage>
+          <Site />
+        </OgImage>
         <h1 className="text-4xl">blog</h1>
         <OgImage>
           <Blog date="June 1, 2021" title="Lorem ipsum dolor sit" length={5} />
@@ -30,8 +34,24 @@ const Home: NextPage = () => {
 function OgImage(props: { children: React.ReactNode }) {
   return (
     <div className="flex h-[700px] w-[1260px] flex-col items-center justify-center">
-      <div className="flex h-[630px] w-[1200px] flex-col items-center justify-center">
-        {props.children}
+      {props.children}
+    </div>
+  );
+}
+
+function Site() {
+  return (
+    <div className="flex h-[630px] w-[1200px] flex-col overflow-clip bg-[hsl(15,35%,5%)] bg-cover p-16 text-[hsl(15,15%,90%)]">
+      <div className="sticky right-10 top-0 z-0 h-4 w-4 rounded-full bg-transparent shadow-[1030px_600px_800px_800px_rgba(255,180,100,0.12)]" />
+      <div className="z-100 flex h-full w-full flex-col items-center justify-center gap-16">
+        <img
+          className="z-4 rounded-full"
+          src="https://www.c-ehrlich.dev/_astro/avatar.aa3e3aeb_Z1JGnRO.jpg"
+          width="224px"
+          height="224px"
+          alt="Christopher Ehrlich Avatar"
+        />
+        <h1 className="mb-4 text-7xl font-bold">Christopher Ehrlich</h1>
       </div>
     </div>
   );
@@ -44,13 +64,13 @@ function Blog(props: {
   isVideo?: boolean;
 }) {
   return (
-    <div className="flex h-full w-full flex-col overflow-clip bg-[hsl(15,35%,5%)] bg-cover p-16 text-[hsl(15,15%,90%)]">
-      <div className="sticky right-10 top-0 z-0 h-4 w-4 rounded-full bg-transparent shadow-[820px_420px_600px_600px_rgba(255,100,100,0.12)]" />
+    <div className="flex h-[630px] w-[1200px] flex-col overflow-clip bg-[hsl(15,35%,5%)] bg-cover p-16 text-[hsl(15,15%,90%)]">
+      <div className="sticky right-10 top-0 z-0 h-4 w-4 rounded-full bg-transparent shadow-[1030px_600px_800px_800px_rgba(255,180,100,0.12)]" />
       <div className="z-100 flex h-full w-full flex-col justify-between">
         <div className="flex flex-col gap-16">
           <div className="flex justify-between">
             <img
-              className="z-4"
+              className="z-4 rounded-full"
               src="https://www.c-ehrlich.dev/_astro/avatar.aa3e3aeb_Z1JGnRO.jpg"
               width="160px"
               height="160px"
