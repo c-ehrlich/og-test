@@ -46,7 +46,7 @@ function Site() {
       <div className="z-100 flex h-full w-full flex-col items-center justify-center gap-16">
         <img
           className="z-4 rounded-full"
-          src="https://www.c-ehrlich.dev/_astro/avatar.aa3e3aeb_Z1JGnRO.jpg"
+          src="https://www.c-ehrlich.dev/og/avatar.jpg"
           width="224px"
           height="224px"
           alt="Christopher Ehrlich Avatar"
@@ -57,12 +57,7 @@ function Site() {
   );
 }
 
-function Blog(props: {
-  date: string;
-  title: string;
-  length: number;
-  isVideo?: boolean;
-}) {
+function Blog(props: { title: string; minRead: number; isVideo?: boolean }) {
   return (
     <div className="flex h-[630px] w-[1200px] flex-col overflow-clip bg-[hsl(15,35%,5%)] bg-cover p-16 text-[hsl(15,15%,90%)]">
       <div className="sticky right-10 top-0 z-0 h-4 w-4 rounded-full bg-transparent shadow-[1030px_600px_800px_800px_rgba(255,180,100,0.12)]" />
@@ -71,7 +66,7 @@ function Blog(props: {
           <div className="flex justify-between">
             <img
               className="z-4 rounded-full"
-              src="https://www.c-ehrlich.dev/_astro/avatar.aa3e3aeb_Z1JGnRO.jpg"
+              src="https://www.c-ehrlich.dev/og/avatar.jpg"
               width="160px"
               height="160px"
               alt="Christopher Ehrlich Avatar"
@@ -86,7 +81,7 @@ function Blog(props: {
         </div>
         <div className="flex justify-between text-4xl">
           <p className="text-orange-300/90">
-            {props.length} minute {props.isVideo ? "video" : "read"}
+            {props.minRead} minute {props.isVideo ? "video" : "read"}
           </p>
         </div>
       </div>
