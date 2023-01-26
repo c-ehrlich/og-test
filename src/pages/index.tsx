@@ -44,18 +44,20 @@ function Blog(props: {
   isVideo?: boolean;
 }) {
   return (
-    <div className="flex h-full w-full flex-col bg-[hsl(15,35%,5%)] bg-cover p-16 text-[hsl(15,15%,90%)]">
-      <div className="gap- flex h-full w-full flex-col justify-between">
+    <div className="flex h-full w-full flex-col overflow-clip bg-[hsl(15,35%,5%)] bg-cover p-16 text-[hsl(15,15%,90%)]">
+      <div className="sticky right-10 top-0 z-0 h-4 w-4 rounded-full bg-transparent shadow-[820px_420px_600px_600px_rgba(255,100,100,0.12)]" />
+      <div className="z-100 flex h-full w-full flex-col justify-between">
         <div className="flex flex-col gap-16">
           <div className="flex justify-between">
             <img
-              className="rounded-full"
+              className="z-4"
               src="https://www.c-ehrlich.dev/_astro/avatar.aa3e3aeb_Z1JGnRO.jpg"
               width="160px"
               height="160px"
               alt="Christopher Ehrlich Avatar"
             />
-            <p className="text-4xl">5 minute read</p>
+            {/* <p className="text-4xl">c-ehrlich.dev</p> */}
+            <p className="text-4xl">Christopher Ehrlich</p>
             {/* <p className="text-4xl">c-ehrlich.dev</p> */}
           </div>
           <h1 className="my-0 py-0 text-7xl font-extrabold leading-tight">
@@ -63,11 +65,9 @@ function Blog(props: {
           </h1>
         </div>
         <div className="flex justify-between text-4xl">
-          <p className="text-orange-300/90">Christopher Ehrlich</p>
-          {/* <p className="">
+          <p className="text-orange-300/90">
             {props.length} minute {props.isVideo ? "video" : "read"}
-          </p> */}
-          {/* <p className="">20. May 2022</p> */}
+          </p>
         </div>
       </div>
     </div>
