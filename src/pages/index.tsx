@@ -12,9 +12,13 @@ const Home: NextPage = () => {
       <div className="flex min-h-screen w-screen flex-col py-2">
         <h1 className="text-4xl">blog</h1>
         <OgImage>
+          <Blog date="June 1, 2021" title="Lorem ipsum dolor sit" length={5} />
+        </OgImage>
+        <OgImage>
           <Blog
             date="June 1, 2021"
-            title=" Writing clean React Query code in a world where most of it is not so clean"
+            title="Lorem ipsum dolor sit amet consetetur sadipscing elitr"
+            length={5}
           />
         </OgImage>
         <h1 className="text-4xl">another thing</h1>
@@ -33,23 +37,38 @@ function OgImage(props: { children: React.ReactNode }) {
   );
 }
 
-function Blog(props: { date: string; title: string }) {
+function Blog(props: {
+  date: string;
+  title: string;
+  length: number;
+  isVideo?: boolean;
+}) {
   return (
     <div className="flex h-full w-full flex-col bg-[hsl(15,35%,5%)] bg-cover p-16 text-[hsl(15,15%,90%)]">
       <div className="gap- flex h-full w-full flex-col justify-between">
-        <div className="flex flex-col gap-8">
-          <img
-            className="rounded-full"
-            src="https://www.c-ehrlich.dev/assets/avatar.3ca5b4ed_aYQcn.jpg"
-            width="196px"
-            height="196px"
-            alt="Christopher Ehrlich Avatar"
-          />
-          <h1 className="my-0 py-0 text-6xl font-extrabold leading-tight">
+        <div className="flex flex-col gap-16">
+          <div className="flex justify-between">
+            <img
+              className="rounded-full"
+              src="https://www.c-ehrlich.dev/_astro/avatar.aa3e3aeb_Z1JGnRO.jpg"
+              width="160px"
+              height="160px"
+              alt="Christopher Ehrlich Avatar"
+            />
+            <p className="text-4xl">5 minute read</p>
+            {/* <p className="text-4xl">c-ehrlich.dev</p> */}
+          </div>
+          <h1 className="my-0 py-0 text-7xl font-extrabold leading-tight">
             {props.title}
           </h1>
         </div>
-        <p className="text-4xl">c-ehrlich.dev</p>
+        <div className="flex justify-between text-4xl">
+          <p className="text-orange-300/90">Christopher Ehrlich</p>
+          {/* <p className="">
+            {props.length} minute {props.isVideo ? "video" : "read"}
+          </p> */}
+          {/* <p className="">20. May 2022</p> */}
+        </div>
       </div>
     </div>
   );
