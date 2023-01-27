@@ -1,5 +1,6 @@
 import { type NextPage } from "next";
 import Head from "next/head";
+import "@fontsource/inter";
 
 const Home: NextPage = () => {
   return (
@@ -16,13 +17,12 @@ const Home: NextPage = () => {
         </OgImage>
         <h1 className="text-4xl">blog</h1>
         <OgImage>
-          <Blog date="June 1, 2021" title="Lorem ipsum dolor sit" length={5} />
+          <Blog title="Lorem ipsum dolor sit" minRead={5} />
         </OgImage>
         <OgImage>
           <Blog
-            date="June 1, 2021"
             title="Lorem ipsum dolor sit amet consetetur sadipscing elitr"
-            length={5}
+            minRead={5}
           />
         </OgImage>
         <h1 className="text-4xl">another thing</h1>
@@ -59,28 +59,82 @@ function Site() {
 
 function Blog(props: { title: string; minRead: number; isVideo?: boolean }) {
   return (
-    <div className="flex h-[630px] w-[1200px] flex-col overflow-clip bg-[hsl(15,35%,5%)] bg-cover p-16 text-[hsl(15,15%,90%)]">
-      <div className="sticky right-10 top-0 z-0 h-4 w-4 rounded-full bg-transparent shadow-[1030px_600px_800px_800px_rgba(255,180,100,0.12)]" />
-      <div className="z-100 flex h-full w-full flex-col justify-between">
-        <div className="flex flex-col gap-16">
-          <div className="flex justify-between">
+    <div
+      style={{
+        display: "flex",
+        height: "630px",
+        width: "1200px",
+        flexDirection: "column",
+        overflow: "hidden",
+        backgroundColor: "hsl(15,35%,5%)",
+        backgroundSize: "cover",
+        padding: "64px",
+        color: "hsl(15,15%,90%)",
+        fontFamily: "Inter",
+      }}
+    >
+      <div style={{ display: "flex", position: "absolute" }}>
+        <div
+          style={{
+            display: "flex",
+            position: "relative",
+            right: "40px",
+            top: "0px",
+            zIndex: "0",
+            height: "16px",
+            width: "16px",
+            borderRadius: "50%",
+            backgroundColor: "transparent",
+            boxShadow: "1030px 600px 800px 800px rgba(255,140,100,0.12)",
+          }}
+        />
+      </div>
+      <div
+        style={{
+          zIndex: 100,
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+          height: "100%",
+          width: "100%",
+        }}
+      >
+        <div style={{ display: "flex", flexDirection: "column", gap: "64px" }}>
+          <div style={{ display: "flex", justifyContent: "space-between" }}>
             <img
-              className="z-4 rounded-full"
+              style={{ zIndex: "4", borderRadius: "50%" }}
               src="https://www.c-ehrlich.dev/og/avatar.jpg"
               width="160px"
               height="160px"
               alt="Christopher Ehrlich Avatar"
             />
-            {/* <p className="text-4xl">c-ehrlich.dev</p> */}
-            <p className="text-4xl">Christopher Ehrlich</p>
-            {/* <p className="text-4xl">c-ehrlich.dev</p> */}
+            <p style={{ fontSize: "2.25rem", lineHeight: "2.5rem" }}>
+              Christopher Ehrlich
+            </p>
           </div>
-          <h1 className="my-0 py-0 text-7xl font-extrabold leading-tight">
+          <h1
+            style={{
+              marginTop: "0",
+              marginBottom: "0",
+              paddingTop: "0",
+              paddingBottom: "0",
+              fontSize: "4.5rem",
+              lineHeight: "1.25",
+              fontWeight: "800",
+            }}
+          >
             {props.title}
           </h1>
         </div>
-        <div className="flex justify-between text-4xl">
-          <p className="text-orange-300/90">
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            fontSize: "2.25rem",
+            lineHeight: "2.5rem",
+          }}
+        >
+          <p style={{ color: "rgb(253 186 116 / 0.9)" }}>
             {props.minRead} minute {props.isVideo ? "video" : "read"}
           </p>
         </div>
